@@ -7,7 +7,7 @@ import torch.nn as nn
 from models import LSTNet
 import numpy as np;
 import importlib
-
+import Datasets
 from utils import *;
 import Optim
 
@@ -29,8 +29,8 @@ def evaluate(data, X, Y, model, evaluateL2, evaluateL1, batch_size):
             test = torch.cat((test, Y));
         
         scale = data.scale.expand(output.size(0), data.m)
-        total_loss += evaluateL2(output * scale, Y * scale).data[0]
-        total_loss_l1 += evaluateL1(output * scale, Y * scale).data[0]
+        total_loss += evaluateL2(output * scale, Y * scale).item()
+        total_loss_l1 += evaluateL1(output * scale, Y * scale).item()
         n_samples += (output.size(0) * data.m);
     rse = math.sqrt(total_loss / n_samples)/data.rse
     rae = (total_loss_l1/n_samples)/data.rae
@@ -57,7 +57,7 @@ def train(data, X, Y, model, criterion, optim, batch_size):
         loss = criterion(output * scale, Y * scale);
         loss.backward();
         grad_norm = optim.step();
-        total_loss += loss.data[0];
+        total_loss += loss.item();
         n_samples += (output.size(0) * data.m);
     return total_loss / n_samples
     
@@ -113,7 +113,16 @@ if torch.cuda.is_available():
     else:
         torch.cuda.manual_seed(args.seed)
 
-Data = Data_utility(args.data, 0.6, 0.2, args.cuda, args.horizon, args.window, args.normalize);
+if args.data=="solar":
+  dSet=Datasets.Solar().data
+elif args.data=="exchange_rate":
+  dSet=Datasets.ExchangeRate().data
+elif args.data=="electricity":
+  dSet=Datasets.Electricity().data
+elif args.data=="traffic":
+  dSet=Datasets.Traffic().data
+
+Data = Data_utility(dSet, 0.6, 0.2, args.cuda, args.horizon, args.window, args.normalize);
 print(Data.rse);
 
 model = eval(args.model).Model(args, Data);

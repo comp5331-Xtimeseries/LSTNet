@@ -8,12 +8,11 @@ def normal_std(x):
 
 class Data_utility(object):
     # train and valid is the ratio of training set and validation set. test = 1 - train - valid
-    def __init__(self, file_name, train, valid, cuda, horizon, window, normalize = 2):
+    def __init__(self, dSet, train, valid, cuda, horizon, window, normalize = 2):
         self.cuda = cuda;
         self.P = window;
         self.h = horizon
-        fin = open(file_name);
-        self.rawdat = np.loadtxt(fin,delimiter=',');
+        self.rawdat = dSet
         self.dat = np.zeros(self.rawdat.shape);
         self.n, self.m = self.dat.shape;
         self.normalize = 2
