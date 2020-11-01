@@ -12,5 +12,5 @@ We give the examples to run different datasets in ele.sh, traffic.sh, solar.sh a
 
 ### Environment 
 
-Python 2.7 and Pytorch 0.3.0
+Python 3.6 and Pytorch 1.6.0
 
