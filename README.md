@@ -1,14 +1,17 @@
-# time_series_forecasting
+# LSTNet
 
-### paper
+### Paper
 
 Modeling Long- and Short-Term Temporal Patterns with Deep Neural Networks.(https://arxiv.org/abs/1703.07015)
 
+Source repo: https://github.com/laiguokun/LSTNet
+
 ### usage
 
-You can download the datasets mentioned in the paper at https://github.com/laiguokun/multivariate-time-series-data.
+Check the `Dataset.py` for the usage of datasets.
 
-We give the examples to run different datasets in ele.sh, traffic.sh, solar.sh and stoke.sh.
+Check the `save` folder for the trained models and their configurations
+
 
 ### Environment 
 
