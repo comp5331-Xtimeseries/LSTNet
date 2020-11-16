@@ -1,5 +1,14 @@
 # Trained models
 
+
+| Dataset  | window | horizon |
+| ------------- | ------------- |------------- |
+| ExchangeRate | 168  | 12 |
+| Electricity | 168  | 24 |
+| Solar | 168  | 12 |
+| Traffic | 168  | 12 |
+| SP500 | 60  | 6 |
+
 The save are generated from the following commands:
 
 <details> 
