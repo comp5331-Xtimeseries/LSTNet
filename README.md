@@ -34,5 +34,5 @@ Check `main.py` for the usage of the arguments.
 ### Environment 
 Linux
 
-Python 3.6 and Pytorch 1.6.0
+Python 3.6 and PyTorch 1.6.0
 
