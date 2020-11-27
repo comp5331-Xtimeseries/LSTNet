@@ -4,7 +4,7 @@
 
 Modeling Long- and Short-Term Temporal Patterns with Deep Neural Networks.(https://arxiv.org/abs/1703.07015)
 
-Source repo: https://github.com/laiguokun/LSTNet
+This repo is forked from and modified on the authors' repo: https://github.com/laiguokun/LSTNet
 
 ### Source file descriptions
 
